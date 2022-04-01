@@ -94,6 +94,7 @@ document.querySelector('form').addEventListener('submit', (event) => {
 
 openBookForm = (content) => {
   if (content == null) return;
+  document.querySelector('form').reset();
   content.classList.add('active');
   overlay.classList.add('active');
 }

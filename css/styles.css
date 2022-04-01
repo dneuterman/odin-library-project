@@ -3,6 +3,29 @@
     margin: 0;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --primary-color: #557a95;
+    --primary-color-light: #7395ae;
+    --secondary-color: #5d5c61;
+    --secondary-color-light: #949494;
+    --tertiary-color: #b1a296;
+    --font-color: #e7e7e7;
+    background-color: var(--tertiary-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 25vw;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
 .book-form {
     position: fixed;
     top: 50%;
@@ -49,10 +72,26 @@
 
 .library-container {
     display: flex;
+    width: 50vw;
+    flex-wrap: wrap;
 }
 
-.book-container {
-    width: max-content;
+.book-card {
+    min-width: 10rem;
+    border: 2px solid black;
+    margin: 1rem;
+    background-color: var(--secondary-color-light);
+}
+
+.book-title {
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--font-color)
+}
+
+.book-author, .book-pages, .book-read {
+    margin: 0.5rem;
 }
 
 #overlay {

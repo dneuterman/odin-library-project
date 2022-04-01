@@ -9,7 +9,10 @@
     <script src="./js/script.js" defer></script>
 </head>
 <body>
-    <button data-book-form-target=".book-form">Add Book</button>
+    <nav>
+        <h1>Library Awesome</h1>
+        <button data-book-form-target=".book-form">Add Book</button>
+    </nav>
     <div class="book-form">
         <div class="modal-header">
             <h3 class="title">Example Modal</h3>
@@ -30,7 +33,7 @@
                     <input type="number" name="pages" id="book-pages-input">
                 </div>
                 <div class="form-input">
-                    <label for="read">Number of Pages</label>
+                    <label for="read">Read?</label>
                     <input type="checkbox" name="read" id="book-read-input">
                 </div>
                 <button type="submit">Add Book</button>
