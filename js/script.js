@@ -34,12 +34,32 @@ const updateLibrary = () => {
     bookPages.setAttribute("class", "book-pages");
     bookPages.textContent = `Pages: ${book.pages}`;
 
-    const bookRead = document.createElement("p");
-    bookRead.setAttribute("class", "book-read");
-    bookRead.textContent = `Read?`;
+    const bookReadContainer = document.createElement("div");
+    bookReadContainer.setAttribute("class", "book-read-container");
+
+    const bookReadLabel = document.createElement("label");
+    bookReadLabel.setAttribute("class", "book-read-label");
+    bookReadLabel.textContent = "Read";
+
+    const bookReadCheckbox = document.createElement("input");
+    bookReadCheckbox.setAttribute("class", "book-read-checkbox");
+    bookReadCheckbox.setAttribute("type", "checkbox");
     if (book.read === true) {
-      bookRead.style.backgroundColor = "green";
+      bookReadContainer.classList.add("book-read-toggle");
+      bookReadCheckbox.setAttribute("checked", "checked");
     }
+
+    bookReadCheckbox.addEventListener("change", () => {
+      const userLibraryIndex = Number(bookReadCheckbox.closest("[data-book-index]").dataset.bookIndex);
+      if (userLibrary[userLibraryIndex].read === true) {
+        userLibrary[userLibraryIndex].read = false;
+      } else {
+        userLibrary[userLibraryIndex].read = true;
+      }
+      bookReadContainer.classList.toggle("book-read-toggle");
+    })
+
+    bookReadContainer.append(bookReadLabel, bookReadCheckbox);
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "delete";
@@ -47,7 +67,7 @@ const updateLibrary = () => {
       removeBook(removeButton.parentElement.dataset.bookIndex);
     })
 
-    bookCard.append(bookTitle, bookAuthor, bookPages, bookRead, removeButton);
+    bookCard.append(bookTitle, bookAuthor, bookPages, bookReadContainer, removeButton);
     library.append(bookCard);
   })
 }

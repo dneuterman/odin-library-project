@@ -94,8 +94,12 @@ nav {
     overflow-wrap: normal;
 }
 
-.book-author, .book-pages, .book-read {
+.book-author, .book-pages, .book-read-container {
     margin: 0.5rem;
+}
+
+.book-read-toggle {
+    background-color: green;
 }
 
 #overlay {
